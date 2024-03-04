@@ -53,8 +53,12 @@ void InsFront(Node *start)
 {
     Node temp;
     temp = GetNode();
-    temp->link = *start;
-    *start = temp;
+    if (temp!=NULL)
+    {
+        temp->link = *start;
+        *start = temp;
+    }
+    
 }
 void DelRear(Node *start)
 {
@@ -82,13 +86,14 @@ void DelRear(Node *start)
 }
 void Display(Node start)
 {
-    Node ptr;int count = 0;
+    Node ptr;
+    int count = 0;
     if (start == NULL)
     {
         printf("\nSLL is empty\n");
         return;
     }
-    printf("\nThe contents of SLL are :n");
+    printf("\nThe contents of SLL are :\n");
     ptr = start;
     printf("\nUSN\tName\tAverage marks");
     while (ptr != NULL)
@@ -107,12 +112,13 @@ void main()
     scanf("%d", &Num);
     for (i = 0; i < Num; i++)
     {
-        printf("\nEnter Data for Node %d :n", i + 1);
+        printf("\nEnter Data for Node %d :\n", i + 1);
         InsFront(&start);
     }
-    printf("\nQUEUE OPERATIONSn");
+    printf("\nQUEUE OPERATIONS\n");
     printf("====================");
     printf("\n1.Insert Front\n2.Insert Rear\n3.Delete Front\n4.Delete Rear\n5.Display\n6.Exit\n");
+    printf("====================");
     while (1)
     {
         printf("\nEnter your choice\n");
